@@ -24,8 +24,7 @@ public class UnityChanController : MonoBehaviour {
         }
         else if (Input.GetKey(KeyCode.UpArrow))
         {
-
-            //transform.position += new Vector3(0, 0, 0.05f);
+            //回転している方向にすすむようにちょっとややこしくしたよ
             transform.position += transform.TransformDirection(Vector3.forward) * 0.05f;
             animator.SetBool("walk_f", true);
             animator.SetBool("jump", false);
@@ -35,7 +34,6 @@ public class UnityChanController : MonoBehaviour {
         else if (Input.GetKey(KeyCode.DownArrow))
         {
 
-            //transform.position += new Vector3(0, 0, -0.05f);
             transform.position += transform.TransformDirection(Vector3.forward) * -0.05f;
             animator.SetBool("walk_b", true);
             animator.SetBool("walk_f", false);
