@@ -16,25 +16,31 @@ public class UnityChanController : MonoBehaviour {
         if (Input.GetKey(KeyCode.Space))
         {
 
-            animator.SetBool("jumping", true);
-            animator.SetBool("walking", false);
+            animator.SetBool("jump", true);
+            animator.SetBool("walk_f", false);
+            animator.SetBool("walk_b", false);
 
-        }else if (Input.GetKey(KeyCode.UpArrow)){
+        }
+        else if (Input.GetKey(KeyCode.UpArrow)){
 
-            transform.position += new Vector3(0, 0, 0.5f);
-            animator.SetBool("walking", true);
-            animator.SetBool("jumping", false);
+            transform.position += new Vector3(0, 0, 0.05f);
+            animator.SetBool("walk_f", true);
+            animator.SetBool("jump", false);
+            animator.SetBool("walk_b", false);
 
-        }else if (Input.GetKey(KeyCode.DownArrow)){
+        }
+        else if (Input.GetKey(KeyCode.DownArrow)){
             
-            transform.position += new Vector3(0, 0, -0.5f);
-            animator.SetBool("walking", true);
-            animator.SetBool("jumping", false);
+            transform.position += new Vector3(0, 0, -0.05f);
+            animator.SetBool("walk_b", true);
+            animator.SetBool("walk_f", false);
+            animator.SetBool("jump", false);
 
         }else{
 
-            animator.SetBool("walking", false);
-            animator.SetBool("jumping", false);
+            animator.SetBool("jump", false);
+            animator.SetBool("walk_f", false);
+            animator.SetBool("walk_b", false);
 
         }
     }
