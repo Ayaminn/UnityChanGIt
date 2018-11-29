@@ -5,6 +5,7 @@ using UnityEngine;
 public class UnityChanController : MonoBehaviour {
 
     private Animator animator;
+    public float yrote = 0.0f;
 
     void Start()
     {
@@ -21,7 +22,8 @@ public class UnityChanController : MonoBehaviour {
             animator.SetBool("walk_b", false);
 
         }
-        else if (Input.GetKey(KeyCode.UpArrow)){
+        else if (Input.GetKey(KeyCode.UpArrow))
+        {
 
             transform.position += new Vector3(0, 0, 0.05f);
             animator.SetBool("walk_f", true);
@@ -29,19 +31,37 @@ public class UnityChanController : MonoBehaviour {
             animator.SetBool("walk_b", false);
 
         }
-        else if (Input.GetKey(KeyCode.DownArrow)){
-            
+        else if (Input.GetKey(KeyCode.DownArrow))
+        {
+
             transform.position += new Vector3(0, 0, -0.05f);
             animator.SetBool("walk_b", true);
             animator.SetBool("walk_f", false);
             animator.SetBool("jump", false);
 
-        }else{
+        }
+        else
+        {
 
             animator.SetBool("jump", false);
             animator.SetBool("walk_f", false);
             animator.SetBool("walk_b", false);
 
+        }
+
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+
+            yrote = transform.eulerAngles.y + 1;
+            transform.rotation = Quaternion.Euler(0, yrote, 0);
+
+        }
+        else if (Input.GetKey(KeyCode.LeftArrow))
+        {
+
+            yrote = transform.eulerAngles.y - 1;
+            transform.rotation = Quaternion.Euler(0, yrote, 0);
         }
     }
 }
